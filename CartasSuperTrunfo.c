@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <string.h>
+#include <math.h>
 
 int main() {
     // Declaracao das variaveis
@@ -7,6 +8,7 @@ int main() {
     char cod1[15], nome1[50], cod2[15], nome2[50];
     int populacao1, populacao2, pTuristicos1, pTuristicos2;
     float area1, area2, pib1, pib2;
+    float densidadePopulaciona1, densidadePopulaciona2, pibPerCapita1, pibPerCapita2;
 
     printf("Informacoes CARTA 1: \n");
 
@@ -63,6 +65,16 @@ int main() {
     printf("Digite o numero de pontos turisticos da cidade: ");
     scanf("%d", &pTuristicos2);
 
+    // Calculando a densidade populacional das cartas
+    densidadePopulaciona1 = populacao1 / area1;
+    densidadePopulaciona2 = populacao2 / area2;
+
+    /* Calculando o PIB per Capita! | obs: O PIB foi multiplicado por 10 elevado a 9 pois pelo formato de discagem 
+    ex: 699.28 ao realizar a divisão pela populacao resultaria em 0, então transformamos 699.28 em bilhôes. */
+
+    pibPerCapita1 = (pib1 * pow(10, 9)) / populacao1;
+    pibPerCapita2 = (pib2 * pow(10, 9)) / populacao2;
+
     // Impressao das caracteristicas das cartas
     printf("\nCARTA 1:\n");
     printf("Estado: %c\n", estado1);
@@ -72,6 +84,8 @@ int main() {
     printf("Area: %.2f km^2\n", area1);
     printf("PIB: %.2f bilhoes de reais\n", pib1);
     printf("Numero de Pontos Turisticos: %d\n", pTuristicos1);
+    printf("Densidade Populacional: %.2f hab/km^2\n", densidadePopulaciona1);
+    printf("PIB per Capita: %.2f reais\n", pibPerCapita1);
 
     printf("\nCARTA 2:\n");
     printf("Estado: %c\n", estado2);
@@ -81,6 +95,8 @@ int main() {
     printf("Area: %.2f km^2\n", area2);
     printf("PIB: %.2f bilhoes de reais\n", pib2);
     printf("Numero de Pontos Turisticos: %d\n", pTuristicos2);
+    printf("Densidade Populacional: %.2f hab/km^2\n", densidadePopulaciona2);
+    printf("PIB per Capita: %.2f reais\n", pibPerCapita2);
 
     return 0;
 }
